@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Election Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f4f6f8;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+        .party-pmln {
+            color: green;
+            font-weight: bold;
+        }
+        .party-pt {
+            color: orange;
+            font-weight: bold;
+        }
+        .party-ind {
+            color: grey;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>Election Results</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Province</th>
+                <th>District</th>
+                <th>Constituency</th>
+                <th>Population</th>
+                <th>Polling Stations</th>
+                <th>Male</th>
+                <th>Female</th>
+                <th>Total Voters</th>
+                <th>NA Name</th>
+                <th>Votes</th>
+                <th>Candidate</th>
+                <th>Party</th>
+                <th>Year</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in elections %}
+            <tr>
+                <td>{{ row.province }}</td>
+                <td>{{ row.district }}</td>
+                <td>{{ row.constituency_name }}</td>
+                <td>{{ row["pop"] }}</td>
+                <td>{{ row.no_of_polling_stations }}</td>
+                <td>{{ row.male }}</td>
+                <td>{{ row.female }}</td>
+                <td>{{ row.total }}</td>
+                <td>{{ row.na_name }}</td>
+                <td>{{ row.obtained_votes }}</td>
+                <td>{{ row.candidate_name }}</td>
+                <td class="party-{{ row.party|lower }}">{{ row.party }}</td>
+                <td>{{ row.year }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
