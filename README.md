@@ -17,11 +17,11 @@ This project converts the Elections API into a dataset and exposes it again as a
    - Run `script_to_compile_data.py` to generate dataset.
    - Install dependencies:  
      ```bash
-     pip install -r flask_api/requirements.txt
+     pip install -r requirements.txt
      ```
    - Run API:  
      ```bash
-     python flask_api/app.py
+     python flask_api.py
      ```
 
 ## Notes
